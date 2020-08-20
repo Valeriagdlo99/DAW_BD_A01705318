@@ -1,7 +1,25 @@
 h1 {
     font-size: 27px;
     font-family: Helvetica;
-    color: color:blue;
+    color:blue;
+    text-align: center;
+}
+h2 {
+    font-size: 20px;
+    text-align: left;
+    font-family: Helvetica;
+    text-align: center;
+}
+
+li {
+    font-family: Helvetica;
+	font-size: 15px;
+}
+
+
+h3 {
+    font-family: Helvetica;
+    font-size: 15px;
     text-align: center;
 }
 
@@ -17,11 +35,10 @@ header {
     
 }
 
-p {
-    padding-right: 10px;
-	padding-left: 10px;
-	font-family: Arial;
-	font-size: 15px;
+
+article{
+    margin-left: 5%; 
+    margin-right: 5%;
 }
 
 body {
@@ -37,17 +54,7 @@ section {
     margin-top: 10px;
 }
 
-h2 {
-    font-size: 20px;
-    text-align: left;
-    font-family: Helvetica;
-    text-align: center;
-}
 
-li {
-    font-family: Helvetica;
-	font-size: 15px;
-}
 
 footer {
     background-color:#ffe6ff;
@@ -57,13 +64,3 @@ footer {
     height: 10%;
 }
 
-h3 {
-    font-family: Helvetica;
-    font-size: 15px;
-    text-align: center;
-}
-
-article{
-    margin-left: 5%; 
-    margin-right: 5%;
-}
