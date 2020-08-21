@@ -45,6 +45,12 @@ header {
     */
     
 }
+header.particular{
+    width: 90%;
+    align-content: center;
+    align-items: center;
+    margin-left: 5%;
+}
 
 
 article{
@@ -53,7 +59,7 @@ article{
 }
 
 body {
-    background-color: #ccffcc;
+    background-image: url("fondo.jpg");
 }
 
 section {
