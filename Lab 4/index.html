@@ -35,26 +35,28 @@
                         <p>
                             Cantidad de números negativos en el arreglo, la cantidad de 0's, y la cantidad de valores mayores a 0 en el arreglo.
                         </p>
-                        <button class='myButton' onclick="ejercicio3([-3,-2,-1,0,1,2,3]).toString()">Ejercicio 3</button>
-                        <p id="ejercicio3">_</p>
+                        <button class='myButton' onclick="ejercicio3([-3,-2,-1,0,1,2,3])">Ejercicio 3</button>
+                        <!--<button class='myButton' onclick="ejercicio3()">Ejercicio 3</button> -->
+                        <p id="ejercicio3"></p>
                     </li>
                     <li>
                         <p>
-                            Link4
+                            Promedios de cada uno de los renglones de la matriz.
                         </p>
-                        <button class='myButton' onclick="uno()">Ejercicio 4</button>
+                        <button class='myButton' onclick="ejercicio4([[4,6,0],[2,1,5],[3,9,7]])">Ejercicio 4</button>
                     </li>
                     <li>
                         <p>
-                            Link5
+                            El número con sus dígitos en orden inverso
                         </p>
-                        <button class='myButton' onclick="uno()">Ejercicio 5</button>
+                        <button class='myButton' onclick="ejercicio5(125438957)">Ejercicio 5</button>
+                        <p id="ejercicio5"></p>
                     </li>
                     <li>
                         <p>
-                            Link6
+                            Medios de trasnporte y sus caracteristicas.
                         </p>
-                        <button class='myButton' onclick="uno()">Ejercicio 6</button>
+                        <button class='myButton' onclick="ejercicio6()">Ejercicio 6</button>
                     </li>
                 </ul>
             </article>  
@@ -65,44 +67,56 @@
                 <ol>
                     <li>
                         <h3>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h3>
-                        <p>
-                           hola  
-                        </p>
+                        <ul>
+                            <li>Semejanzas:
+                            <p>Los dos se pueden usar para orintado a objetos.</p>
+                            <p>Los dos tienen sitaxis parecida.</p>
+                            </li>
+                            <li>Diferencias:</li>
+                            <p>JavaScript es  recomendado para aplicaciones y sitios web (front-end).</p>
+                            <p>Java es un lenguaje de back-end, destinado a aplicaciones independientes (escritorio y Android).</p>
+                        </ul>
                     </li>
                     <li>
                         <h3>¿Qué métodos tiene el objeto Date?</h3>
-                        <p>
-                            
-                        </p>
-                    </li>
-                    <li>
-                        <h3>¿Qué diferencias y semejanzas hay entre Java y JavaScript?</h3>
-                        <p>
-                            
-                        </p>
+                        <ul>
+                            <li>getDate(): Devuelve el día del mes.</li>
+                            <li>getDay(): Devuelve el día de la semana.</li>
+                            <li>getHours(): Retorna la hora.</li>
+                            <li>getMinutes(): Devuelve los minutos.</li>
+                            <li>getMonth():Devuelve el mes (atención al mes que empieza por 0).</li>
+                            <li>getSeconds(): Devuelve los segundos.</li>
+                            <li>getTime(): Devuelve los milisegundos transcurridos entre el día 1 de enero de 1970 y la fecha correspondiente al objeto al que se le pasa el mensaje.</li>
+                            <li>getYear():Retorna el año, al que se le ha restado 1900. Por ejemplo, para el 1995 retorna 95, para el 2005 retorna 105. Este método está obsoleto en Netscape a partir de la versión 1.3 de Javascript y ahora se utiliza getFullYear().</li>
+                            <li>getFullYear(): Retorna el año con todos los dígitos. Usar este método para estar seguros de que funcionará todo bien en fechas posteriores al año 2000.</li>
+                        </ul>
                     </li>
                     <li>
                         <h3>¿Qué métodos tienen los arreglos?</h3>
-                        <p>
-                            
-                        </p>
+                        <ul>
+                            <li>length: Concoer el tamaño</li>
+                            <li>toString(): el array se convierte en una cadena</li>
+                            <li>shift(): obtener el primer elemento de un array</li>
+                            <li>reverse(): invierte sus elementos</li>
+                            <li>sort():ordenar alfabéticamente</li>
+                        </ul>
                     </li>
                     <li>
                         <h3>¿Cómo se declara una variable con alcance local dentro de una función?</h3>
                         <p>
-                            
+                            Se usa la palabra <strong>var</strong> seguido del nombre de la variable.Ahora también se usa <strong>let</strong> para declarar variables limitando su alcance.
                         </p>
                     </li>
                     <li>
                         <h3>¿Qué implicaciones tiene utilizar variables globales dentro de funciones?</h3>
                         <p>
-                            
+                            Porque puede ser usada en cualquier punto del código, puede llegar a ser muy difícil medirlo.
                         </p>
                     </li>
                     <li>
                         <h3>¿Qué método de String se puede utilizar para buscar patrones con expresiones regulares?¿Para qué podrías utilizar esto en una aplicación web?</h3>
                         <p>
-                            
+                            El método match porque compara la cadena de caracteres con la expresión regular, pero su comportamiento depende del parámetro g.Puede servir para ingresar una palabra y buscar palbras en la página.
                         </p>
                     </li>
                 </ol>
@@ -111,11 +125,13 @@
         <footer>
                 <h2>Referencias</h2>
                 <ul>
-                    <li></li>
-                    <li></li>
-                    <li></li>
+                    <li>¿Cuál es la diferencia entre Java y JavaScript? - Wild Code School. (2019). www.wildcodeschool.com. https://www.wildcodeschool.com/es-ES/blog/cual-es-la-diferencia-entre-java-y-javascript</li>
+                    <li>Clase Date en Javascript. (2002, 15 abril). Desarrollo Web. https://desarrolloweb.com/articulos/clase-date-javascript.html</li>
+                    <li>Manejo de Arrays en JavaScript. (2017, 19 septiembre). DevCode Tutoriales. https://devcode.la/tutoriales/manejo-de-arrays-en-javascript/</li>
+                    <li>Pesquet, B. (s. f.). Variables. OpenClassrooms. Recuperado 20 de agosto de 2020, de https://openclassrooms.com/en/courses/4309431-aprende-a-programar-con-javascript/4318441-variables#:%7E:text=Para%20declarar%20la%20variable%20hacemos,del%20nombre%20de%20la%20variable.&text=La%20variable%20de%20momento%20no,indica%20la%20ausencia%20de%20valor.</li>
                 </ul>
             <h4>Valeria Guerra de la O A01705318</h4>
         </footer> 
     </body>
 </html>
+
