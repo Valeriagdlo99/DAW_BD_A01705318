@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <title>Lab 5: Programación orientada a eventos</title>
+    </head>
+    <body>
+        <header>
+            <h1>Venta de produtos</h1>            
+        </header>  
+        <section>
+            <article>
+                <header>
+                    <h2> Arma tu gym en casa </h2>
+                </header><br><br>
+                <div class="grid-container">
+                    <div>
+                        <header class="head">Dumbbell</header>
+                        <p>Mancuerna hexahogal de 25 kg, excelente para poder hacer ejercicio en clasa </p>
+                        <p>A solo $400</p>
+                        <footer class="footer"><br>
+                            <p>Igresa el numero de unidades a comprar</p>
+                            <input type="number" id="dumbbell" min="0" max="15" value="0">
+                        </footer>
+
+                    </div>
+                    <div>
+                        <header class="head">Kettlebell</header>
+                        <p>Pesa rusa de 45 kg ideal para aumentar masa muscular  </p>
+                        <p>A solo $500</p>
+                        <footer class="footer"><br>
+                            <p>Igresa el numero de unidades a comprar</p>
+                            <input type="number" id="kettlebell" min="0" max="15" value="0">
+                        </footer>
+                    </div>
+                    <div>
+                        <header class="head">Cuerda </header>
+                        <p>Cuerda para crosffit crossfit, para simples y dobles saltos</p>
+                        <p>A solo $120</p>
+                        <footer class="footer"><br>
+                            <p>Igresa el numero de unidades a comprar</p>
+                            <input type="number" id="cuerda" min="0" max="15" value="0">
+                        </footer>
+                    </div>  
+                </div>
+                </div>
+                <br>
+                <div class="ticket">
+                    <br>
+                    <button class='alinear'  onclick= "productos()">Realizar compra:</button>
+                    <h3>Ticket de compra:</h3>
+                    <p id="subtotal"></p>
+                    <p id="iva"></p>
+                    <p id="total"></p>
+                </div>
+            </article>
+        </section>        
+        <footer class="name">
+                <h4>Valeria Guerra de la O A01705318</h4>
+        </footer> 
+    </body>
+    <script type="text/javascript" src="Ejercicios.js"></script>
+</html>

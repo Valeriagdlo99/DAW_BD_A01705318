@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang = "es">
+    <head>
+    <meta charset='UTF-8' />
+    <meta name="viewport" content="width=device-width initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    
+    <title>Lab 5: Programación orientada a eventos</title>
+    </head>
+    <body>
+        <header>
+            <h1>Registrar materia de alumnos</h1>            
+        </header>  
+        <section>
+            <article>
+                <header>
+                    <h2> Materias a registrar:</h2>
+                </header><br><br>
+                <div class="grid-container">
+                    <div>
+                        <header class="head">Español</header>
+                        <p>Maestra: Jimena Díaz</p>
+                        <p>Horario: 10:00 - 11:30</p>
+                        <footer class="footer"><br>
+                            <p>Ingresa 1 si se quiere registrar</p>
+                            <input type="number" id="esp" min="0" max="1" value="0">
+                        </footer>
+                    </div>
+                    <div>
+                        <header class="head" ">Matematicas</header>
+                        <p>Maestra: Mariana Perez</p>
+                        <p>Horario: 1:00 - 2:30</p>
+                        <footer class="footer"><br>
+                            <p>Ingresa 1 si se quiere registrar</p>
+                            <input type="number" id="mat" min="0" max="1" value="0">
+                        </footer>
+                    </div>
+                    <div>
+                        <header class="head" >Física </header>
+                        <p>Maestra: Teresa Gomez</p>
+                        <p>Horario: 8:30 - 10:00</p>
+                        <footer class="footer"><br>
+                            <p>Ingresa 1 si se quiere registrar</p>
+                            <input type="number" id="fis" min="0" max="1" value="0">
+                        </footer>
+                    </div>  
+                </div>
+                </div>
+                <br>
+                <h2>Registrate para validar tus materias:</h2>
+                <form onsubmit="usuario()" method="post">
+                    <label for="contraseña">Usuario</label><br>
+                    <input type="text" id="user"><br><br>
+                    <label for="contraseña">Contraseña</label><br>
+                    <input type="text" id="rep1"><br><br>
+                    <label for="repetir">Repetir contraseña:</label><br>
+                    <input type="text" id="rep2"><br><br>
+                    <input type="submit" value="Validar" class="myButton">
+                </form>   
+            </article>
+        </section>        
+        <footer class="name">
+                <h4>Valeria Guerra de la O A01705318</h4>
+        </footer> 
+    </body>
+    <script type="text/javascript" src="Ejercicios.js"></script>
+</html>
