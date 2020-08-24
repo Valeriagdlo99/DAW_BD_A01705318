@@ -32,12 +32,15 @@ function productos(){
     document.getElementById("total").innerHTML = "Total: $ " + total;
 }
 function usuario() {
+    /*
     let esp = document.getElementById("esp").value;
     let fis = document.getElementById("fis").value;
     let mat = document.getElementById("mat").value;
+    */
     let usuario = document.getElementById("usuario").value;
     let rep1 = document.getElementById("rep1").value;
     let rep2 = document.getElementById("rep2").value;
+    alert(usuario);
     if( esp==1 && fis==1 && mat==1)
     {
         if(rep1 == rep2){
@@ -100,4 +103,73 @@ function usuario() {
          
     }
     
+}
+
+function user() {
+    let user = document.getElementById("rep3").value;
+    let mat = document.getElementById("mat").value;
+    let fis = document.getElementById("fis").value;
+    let esp = document.getElementById("esp").value;
+    let rep1 = document.getElementById("rep1").value;
+    let rep2 = document.getElementById("rep2").value;
+   if( esp ==1 & fis ==1 & mat ==1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registraron las 3 materias"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else if( esp==1 & fis==1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registraron: Español y Fisicia"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else if( esp ==1 & mat ==1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registraron:  Matemáticas y Español"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else if( fis ==1 & mat ==1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registraron: Física y Matemáticas"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else if( fis ==1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registró: Física"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else if( mat ==1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registró: Matemáticas"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else if( esp == 1)
+    {
+        if(rep1 == rep2){
+            alert("Contraseña correcta, se registró: Español"); 
+        }else{
+            alert("Las contraseñas no coinciden, no se han podido registrar las materias");
+        }
+    }
+    else 
+    {
+        alert("No seleccionaste ninguna materia");
+    }   
 }
