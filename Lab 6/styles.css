@@ -89,30 +89,6 @@ label{
     font-size: 18px;
     align-content: center;
 }
-.myButton {
-	box-shadow: 3px 4px 0px 0px #899599;
-	background:linear-gradient(to bottom, #a0faf7 5%, #00fff7 100%);
-	background-color:#a0faf7;
-	border-radius:15px;
-	border:1px solid #d6bcd6;
-	display:inline-block;
-	cursor:pointer;
-	color:#3a8a9e;
-	font-family:Arial;
-	font-size:10px;
-	padding:7px 25px;
-	text-decoration:none;
-    text-shadow:0px 1px 0px #e1e2ed;
-    margin-left: 100%;
-}
-.myButton:hover {
-	background:linear-gradient(to bottom, #00fff7 5%, #a0faf7 100%);
-	background-color:#00fff7;
-}
-.myButton:active {
-	position:relative;
-	top:1px;
-}
 .container{
     margin: 0 auto; 
     width: 50%;
@@ -151,8 +127,57 @@ label{
     margin: 0 auto;
     background-color: coral;
   }
-  .alinear{
-    align-content: center;
-    margin-left: 40%;
-  }
 
+.myButton {
+	box-shadow:inset 0px 1px 0px 0px #efdcfb;
+	background-color:#dfbdfa;
+	border-radius:6px;
+	border:1px solid #c584f3;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Verdana;
+	font-size:15px;
+	font-weight:bold;
+	padding:6px 24px;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #9752cc;
+}
+.myButton:hover {
+	background-color:#bc80ea;
+}
+.myButton:active {
+	position:relative;
+	top:1px;
+}
+
+#watermark
+{
+    opacity: 0.3;
+    color: BLACK;
+    position: fixed;
+    top: auto;
+    left: 40%;
+}
+.ayuda{
+    width: 50%;
+    margin: 0 auto;
+    background-color: #ccffff ;
+}
+
+.ticket{
+    width: 50%;
+    margin: 0 auto;
+    background-color: #ffe6e6;
+  }
+  .btn{
+    margin-left: 95%;
+    background-color: #ccffff;
+}
+#square {
+    width: 200px;
+    height: 70px;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 2px;
+}
