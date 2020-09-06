@@ -17,6 +17,17 @@
     <p>Una función que reciba un arreglo de números y muestre la lista de números, y como ítems de una lista html muestre el promedio, la media, y el arreglo ordenado de menor a mayor, y posteriormente de mayor a menor</p>
     <?= lista($arr)?>  
   </div>
+  <div class="container p-3 my-3 bg-info text-white">
+    <h1 class="text-center" >Función 4</h1>
+    <p>Una función que imprima una tabla html, que muestre los cuadrados y cubos de 1 hasta un número n</p>
+    <?= table()?>  
+  </div>
+  <div class="container p-3 my-3 bg-danger text-white">
+    <h1 class="text-center" >Función 5</h1>
+    <p>Escoge algún problema que hayas implementado en otro lenguaje de programación, y dale una solución en php, en una vista agradable para el usuario.</p>
+    <p>Econtrar cuantas veces se repite una letra en una palabra.</p>
+    <?= free()?>  
+  </div>
 <?php 
   function average($arr){
     echo "Promedio de los números  = " . (array_sum($arr)/count($arr));
@@ -66,12 +77,37 @@
             echo $value. ", ";
           }
         echo "</li>";
-    echo"</ul>";
-
-    
+    echo"</ul>";    
   }                           
-  
+  function table(){
+    $number = 7;
+    echo "<p>EL numero n es: " .$number. " </p>" ;
+    echo "<table>";
+      echo "<tr>";
+        echo"<th> Cuadrado </th>";
+        for($i = 1; $i<= $number; $i++){
+          echo "<td>" .pow($i,2). "</td>";
+        }
+      echo "</tr>";
+      echo "<tr>";
+      echo"<th> Cubos </th>";
+        for($i = 1; $i<= $number; $i++){
+          echo "<td>" .pow($i,3). "</td>";
+        }
+      echo "</tr>";
+    echo  "</table>";
+  }
+  function free(){
+    $word="parangaricutirimicuario";
+    $arr1 = str_split($word);
+    $acum=0;
+    $letter="a";
+    foreach ($arr1 as $clave =>$valor){
+      if($valor == $letter)  
+      $acum=$acum+1;
+    }
+    echo "El numero de veces que se repite la letra: " .$letter. " en la palabra: " .$word. " es: " .$acum;
+  }
 
-  
   include("_footer.html"); 
 ?>
