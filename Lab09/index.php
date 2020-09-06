@@ -109,5 +109,6 @@
     echo "El numero de veces que se repite la letra: " .$letter. " en la palabra: " .$word. " es: " .$acum;
   }
 
+  include("_preguntas.html");
   include("_footer.html"); 
 ?>
