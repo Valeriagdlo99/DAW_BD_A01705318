@@ -1,6 +1,6 @@
 <div class="container">
     <h3>Solicita tu prestamo, ingresa tus datos</h3>
-    <form action="register.php" method="POST">
+    <form action="util.php" method="POST">
         <div class="form-row">
           <div class="form-group col-md-4">
             <label for="inputNombre4">Nombre</label>
@@ -8,30 +8,25 @@
           </div>
           <div class="form-group col-md-4">
             <label for="inputApellido4">Apellido</label>
-            <input type="text" class="form-control" id="apellido"  placeholder="Apellido">
+            <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido">
           </div>
           <div class="form-group col-md-4">
             <label for="inputEmail4">Email</label>
-            <input type="email" class="form-control" id="email" placeholder="Email">
+            <input type="email" class="form-control" id="email" name="email"placeholder="Email">
           </div>
         </div>
         <div class="form-row">
             <div class="form-group col-md-4">
-              <label for="inputIngresoMensual" >Ingreso mesual</label>
-              <input type="number" class="form-control" id="ingreso" placeholder="1000,5000">
+              <label for="inputIngresoMensual" >Ingreso mensual</label>
+              <input type="number" class="form-control" id="ingreso" name="ingreso"placeholder="1000,5000">
             </div>
             <div class="form-group col-md-4">
-              <label for="inputMonto">Monto a pedir prestado</label>
-              <select id="monto" class="form-control">
-                <option selected>1000</option>
-                <option>5000 </option>
-                <option>10000 </option>
-                <option>15000 </option>
-              </select>
+                <label for="inputIngresoMensual" >Monto a pedir</label>
+                <input type="monto" class="form-control" id="monto" name="monto"placeholder="1000,5000">
             </div>
             <div class="form-group col-md-4">
                 <label for="inpuTipo">Tipo de tarjeta de credito:</label>
-                <select id="tipo" class="form-control">
+                <select id="tipo" name="tipo"class="form-control">
                   <option selected>Plus</option>
                   <option>Master</option>
                   <option>Ejecutivo</option>
