@@ -1,8 +1,9 @@
 <?php
-    if ( !(isset($_POST["nombre"]) && isset($_POST["apellido"]) && isset($_POST["email"]) && isset($_POST["ingreso"]) && isset($_POST["monto"]) && isset($_POST["tipo"]))) {
+    if ( !(empty($_POST["nombre"]) && empty($_POST["apellido"]) && empty($_POST["email"]) && empty($_POST["ingreso"]) && empty($_POST["monto"]) && empty($_POST["tipo"]))) {
         die("Favor de poner los datos faltantes");
     }
-    $nombre = htmlspecialchars($_POST["nombre"]);
+    else {
+        $nombre = htmlspecialchars($_POST["nombre"]);
     $apellido = htmlspecialchars($_POST["apellido"]);
     $email = htmlspecialchars($_POST["email"]);
     $ingreso = htmlspecialchars($_POST["ingreso"]);
@@ -36,5 +37,7 @@
     include("_head.html");
     include("_prestamo_aprobar.html");
     include("_footer.html"); 
+    }
+    
     
 ?>

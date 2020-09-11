@@ -2,28 +2,40 @@
     <h1 class="text-center">Preguntas</h1>
     <ul>
         <li>
-            <h5>¿Por qué es una buena práctica separar el controlador de la vista?.</h5>
-            <p>Muestra información sobre la configuración de PHP</p>
+            <h5>¿Por qué es una buena práctica separar el controlador de la vista?</h5>
+            <p> Para asegurar calidad en los programas que se realizan para obtener reutilización del código, facilidad de desarrollo y el mantenimiento.</p>
         </li>
         <li>
             <h5>Aparte de los arreglos $_POST y $_GET, ¿qué otros arreglos están predefinidos en php y cuál es su función?</h5>
-            <p>Se debería cambiar los entornos, en especifico los niveles</p>
+            <ul>
+                <li>$_SERVER</li>
+                <li>$_COOKIE</li>
+                <li>$_FILES</li>
+                <li>$_SESSION</li>
+                <li>$_REQUEST</li>
+                <li>$_ENV</li>
+            </ul>
         </li>
         <li>
             <h5>Explora las funciones de php, y describe 2 que no hayas visto en otro lenguaje y que llamen tu atención.</h5>
-            <p>Se hace una petición del archivo HTML a servidor y luego lo interpreta nuestro navegador.</p>
+            <ul>
+                <li>rtrim: Retira los espacios en blanco (u otros caracteres) del final de un string</li>
+                <li>strcoll - Comparación de cadenas basada en la localidad</li>
+            </ul>
         </li>
         <li>
             <h5>¿Qué es XSS y cómo se puede prevenir?</h5>
-            <p>Se hace una petición del archivo HTML a servidor y luego lo interpreta nuestro navegador.</p>
+            <p>Los ataques de Cross-Site Scripting (XSS) son un tipo de inyección, en el que se inyectan scripts maliciosos en sitios web que de otro modo serían benignos y confiables.</p>
+            <p> Se puede prevenir usando htmlspecialchars() o htmlentities()</p>
         </li>
     </ul>
 </div>
 <div class="container p-3 my-3 bg-warning text-white">
     <h1 class="text-center">Referencias</h1>
     <ul>
-        <li>PHP: phpinfo - Manual. (s. f.). php. Recuperado 5 de septiembre de 2020, de https://www.php.net/manual/es/function.phpinfo.php</li>
-        <li>¿Conoces los entornos de trabajo utilizados en el desarrollo de una aplicación web? (s. f.). DHARMA WEB STUDIO. Recuperado 5 de septiembre de 2020, de https://dharmawebstudio.com/blog/conoces-los-entornos-de-trabajo-utilizados-en-el-desarrollo-de-una-aplicacion-web </li>
-        <li>Lenguajes del lado servidor o cliente. (s. f.). PHP Nuke. Recuperado 5 de septiembre de 2020, de http://www.adelat.org/media/docum/nuke_publico/lenguajes_del_lado_servidor_o_cliente.html</li>
+        <li>Qué es MVC. (2020, 28 julio). Desarrollo Web. Recuperado 10 de septiembre de 2020, de https://desarrolloweb.com/articulos/que-es-mvc.html</li>
+        <li>PHP: Superglobals - Manual. (s. f.). PHP. Recuperado 10 de septiembre de 2020, de https://www.php.net/manual/es/language.variables.superglobals.php</li>
+        <li>PHP: Listado de Funciones y Métodos - Manual. (s. f.). PHP. Recuperado 10 de septiembre de 2020, de https://www.php.net/manual/es/indexes.functions.php</li>
+        <li>Cross Site Scripting (XSS) Software Attack | OWASP Foundation. (s. f.). OWASP. Recuperado 10 de septiembre de 2020, de https://owasp.org/www-community/attacks/xss/</li>
     </ul>
 </div>
