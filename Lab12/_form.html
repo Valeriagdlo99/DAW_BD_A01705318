@@ -9,6 +9,8 @@
                 <h1>Crea tu perfil</h1>
               </div>
             </div>
+            <p>El último usuario que accedió a la cuenta fue :</p>
+            <p><?= $_SESSION["usuario"] ?></p>
              <form action="util.php" method="post" name="login">
                   <div class="form-group">
                     <label for="inputNombre4">Nombre</label>
@@ -32,12 +34,12 @@
                   </div>
                   <div class="form-group">
                     <label for="profile">Ingresa imagen de perfil</label>
-                    <input type="file" id="fileToUpload" name="fileToUpload"  class="form-control-file">
-                  </div>
+                    <input type="file" name="fileToUpload" id="fileToUpload">
+                  </div> 
                   <div class="col-md-12 text-center ">
-                        <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
+                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
                   </div>
-                </form>
+              </form>
           </div>
         </div>
   </div>
