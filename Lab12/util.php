@@ -11,7 +11,6 @@
     $email = htmlspecialchars($_POST["email"]);
     $password = htmlspecialchars($_POST["password"]);
     $rep_password = htmlspecialchars($_POST["rep_password"]);
-    $foto = "uploads/".$_FILES["fileToUpload"]["name"];
 
     $target_dir = "uploads/";
     $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);

@@ -10,8 +10,8 @@
               </div>
             </div>
             <p>El último usuario que accedió a la cuenta fue :</p>
-            <p><?= $_SESSION["usuario"] ?></p>
-             <form action="util.php" method="post" name="login">
+            <p><?= $_SESSION["usuario"]?></p>
+             <form action="util.php" method="post" name="login" enctype="multipart/form-data">
                   <div class="form-group">
                     <label for="inputNombre4">Nombre</label>
                     <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
