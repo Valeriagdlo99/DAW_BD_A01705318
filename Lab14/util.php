@@ -1,14 +1,44 @@
 <?php
+function conectDB(){
 
-if(isset($_POST["nombre"])) {
-    $_SESSION["usuario"] = $_POST["usuario"];
+    $conexion_db = mysqli_connect("localhost","root","","fitstore");
+        if (!$conexion_db) {
+            die("No se pudo conectar con la base de datos");
+        }
+        return $conexion_db;
 }
 
-if(!isset($_SESSION["usuario"])) {
-    $_SESSION["usuario"] = "No hay usuarios previos, ¡registrate!";
+function closeDB($conexion_db){
+    mysqli_close($conexion_db);
 }
-include("_head.html");
-include("_form.html");
-include("_preguntas.html");
-include("_footer.html");
+
+function getAccesorio(){
+    $resultado="";
+    $conexion_db  = conectDB();
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio";
+    $resultado = mysqli_query($conexion_db,$sql);
+    closeDB($conexion_db);
+    return $resultado;
+}
+function getMayoreo($cantidad_esperada){
+    $resultado="";
+    $conexion_db  = conectDB();
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM cantidad >=  '".$cantidad_esperada."'  ";
+    $resultado = mysqli_query($conexion_db,$sql);
+    closeDB($conexion_db);
+    return $resultado;
+}
+
+/*
+function select($table, $id_accesorio="id_accesorio", $nombre="nombre"){
+    $resultado = '"<select class="custom-select" id="inputGroupSelect01">"';
+    $resultado .="<option selected>Seleeciona un ..</option>";
+    $conexion_db= conectDB();
+
+    $resultado .= "</select>";
+    closeDB($conexion_db);
+    return $resultado;
+}
+*/
+
 ?>
