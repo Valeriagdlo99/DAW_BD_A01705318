@@ -23,12 +23,19 @@ function getAccesorio(){
 function getMayoreo($cantidad_esperada){
     $resultado="";
     $conexion_db  = conectDB();
-    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM cantidad >=  '".$cantidad_esperada."'  ";
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio WHERE cantidad >=  '".$cantidad_esperada."'  ";
     $resultado = mysqli_query($conexion_db,$sql);
     closeDB($conexion_db);
     return $resultado;
 }
-
+function getNombre($nombre_BS){
+    $resultado="";
+    $conexion_db  = conectDB();
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio WHERE nombre LIKE '%".$nombre_BS."%'  ";
+    $resultado = mysqli_query($conexion_db,$sql);
+    closeDB($conexion_db);
+    return $resultado;
+}
 /*
 function select($table, $id_accesorio="id_accesorio", $nombre="nombre"){
     $resultado = '"<select class="custom-select" id="inputGroupSelect01">"';
