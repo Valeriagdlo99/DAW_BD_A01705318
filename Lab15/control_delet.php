@@ -4,8 +4,8 @@
     if ( (empty($_POST["nombre"]) && empty($_POST["id"]) && empty($_POST["descripcion"]) && empty($_POST["cantidad"]) && empty($_POST["precio"]))) {
         die("Favor de poner los datos faltantes");
     }
-    insert_accesorio();  
-    function insert_accesorio(){
+    delete_accesorio();  
+    function delete_accesorio(){
         $id = htmlspecialchars($_POST["id"]);
         $nombre = htmlspecialchars($_POST["nombre"]);
         $descripcion = htmlspecialchars($_POST["descripcion"]);
@@ -14,13 +14,13 @@
 
         if(isset($nombre) && isset($descripcion)){
             if(is_numeric($id) && is_numeric($cantidad) && is_numeric($precio)){
-                if(insertAccesorio($id,$nombre,$descripcion,$cantidad,$precio))
+                if(deleteAccesorio($id,$nombre,$descripcion,$cantidad,$precio))
                 {
-                    echo("Registrado!");
+                    echo("Eliminado!");
                 }
                 else
                 {
-                    echo("No se pudo registrar!");
+                    echo("No se pudo Eliminar!");
                 }
             }
             else
@@ -29,8 +29,8 @@
             }
         }
     }
-    include("_terminado.html"); 
+    include("_termiando.html");
     include("_preguntas.html");
-    include("_footer.html"); 
-
+    include("_footer.html");
+    
 ?>
