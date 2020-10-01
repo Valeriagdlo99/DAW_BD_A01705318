@@ -1,49 +1,36 @@
-<br>
-<div class="container">
-  <div class="row">
-      <div class="col-md-5 mx-auto">
-        <div id="first">
-          <div class="myform form ">
-            <div class="logo mb-3">
-              <div class="col-md-12 text-center">
-                <h1>Crea tu perfil</h1>
-              </div>
-            </div>
-            <p>El último usuario que accedió a la cuenta fue :</p>
-            <p><?= $_SESSION["usuario"]?></p>
-             <form action="util.php" method="post" name="login" enctype="multipart/form-data">
-                  <div class="form-group">
-                    <label for="inputNombre4">Nombre</label>
-                    <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputUsuario4">Usuario</label>
-                    <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Usuario">
-                  </div>
-                  <div class="form-group ">
-                    <label for="inputEmail4">Email</label>
-                    <input type="email" class="form-control" id="email" name="email"placeholder="Email">
-                  </div>
-                  <div class="form-group">
-                        <label for="inputpassword1">Contraseña</label>
-                        <input type="password" name="password" id="password"  class="form-control" aria-describedby="password" placeholder="Ingresa Contraseña">
-                  </div>
-                  <div class="form-group">
-                    <label for="inputpassword2">Repetir Contraseña</label>
-                    <input type="password" name="rep_password" id="rep_password"  class="form-control" aria-describedby="rep_password" placeholder="Repetir Contraseña">
-                  </div>
-                  <div class="form-group">
-                    <label for="profile">Ingresa imagen de perfil</label>
-                    <input type="file" name="fileToUpload" id="fileToUpload">
-                  </div> 
-                  <div class="col-md-12 text-center ">
-                    <button type="submit" class=" btn btn-block mybtn btn-primary tx-tfm">Login</button>
-                  </div>
-              </form>
-          </div>
-        </div>
-  </div>
-</div> 
-<br>
-<br>
-<br> 
+<br><br>
+<div class="container shadow">
+  <br>
+  <h2 class="text-center">Inserta un nuevo producto!</h2>
+  <br>
+  <form action="control.php" method="POST">
+    <div class="form-group">
+      <label for="id_accesorio">id del producto</label>
+      <input type="number" class="form-control " id="id" name="id" placeholder="0">
+    </div>
+      <div class="form-group">
+        <label for="inputNombre4">Nombre</label>
+        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">
+      </div>
+      <div class="form-group">
+        <label for="descipcion">Descripción</label>
+        <textarea class="form-control" id="descripcion" rows="2" placeholder="descipcion breve del producto" name="descripcion"></textarea>
+      </div>
+      <div class="form-group">
+        <label for="cantidad">Cantidad</label>
+        <input type="number" class="form-control " id="cantidad" placeholder="cantidad en almacen" name="cantidad">
+      </div>
+      <div class="form-group">
+        <label for="precio">Precio</label>
+        <input type="number" class="form-control " id="precio" placeholder="en pesos" name="precio ">
+      </div>
+    <button type="submit" class="btn btn-primary">Solicitar Prestamo</button>
+</form>
+  <br>
+  <br><br>
+</div><br><br>
+
+<div class="container shadow">
+  <h3>Solicita tu prestamo, ingresa tus datos</h3>
+  
+</div>

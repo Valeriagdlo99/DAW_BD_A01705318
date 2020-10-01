@@ -1,67 +1,53 @@
 <?php
-    session_start();
-    $_SESSION['nombre'] = $_POST['nombre'];
-    $_SESSION['usuario'] = $_POST['usuario'];
-    $_SESSION['email'] = $_POST['email'];
-    $_SESSION['password'] = $_POST['password'];
-    $_SESSION['rep_password'] = $_POST['rep_password'];
+function conectDB(){
 
-    $nombre = htmlspecialchars($_POST["nombre"]);
-    $usuario = htmlspecialchars($_POST["usuario"]);
-    $email = htmlspecialchars($_POST["email"]);
-    $password = htmlspecialchars($_POST["password"]);
-    $rep_password = htmlspecialchars($_POST["rep_password"]);
+    $conexion_db = mysqli_connect("localhost","root","","fitstore");
+        if (!$conexion_db) {
+            die("No se pudo conectar con la base de datos");
+        }
+        return $conexion_db;
+}
 
-    $target_dir = "uploads/";
-    $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+function closeDB($conexion_db){
+    mysqli_close($conexion_db);
+}
 
-    // Check if image file is a actual image or fake image
-    if(isset($_POST["submit"])) {
-    $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-    if($check !== false) {
-        echo "File is an image - " . $check["mime"] . ".";
-        $uploadOk = 1;
-    } else {
-        echo "File is not an image.";
-        $uploadOk = 0;
-    }
-    }
+function getAccesorio(){
+    $resultado="";
+    $conexion_db  = conectDB();
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio";
+    $resultado = mysqli_query($conexion_db,$sql);
+    closeDB($conexion_db);
+    return $resultado;
+}
+function getMayoreo($cantidad_esperada){
+    $resultado="";
+    $conexion_db  = conectDB();
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio WHERE cantidad >=  '".$cantidad_esperada."'  ";
+    $resultado = mysqli_query($conexion_db,$sql);
+    closeDB($conexion_db);
+    return $resultado;
+}
+function getNombre($nombre_BS){
+    $resultado="";
+    $conexion_db  = conectDB();
+    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio WHERE nombre LIKE '%".$nombre_BS."%'  ";
+    $resultado = mysqli_query($conexion_db,$sql);
+    closeDB($conexion_db);
+    return $resultado;
+}
+/*
+function select($table, $id_accesorio="id_accesorio", $nombre="nombre"){
+    $resultado = '"<select class="custom-select" id="inputGroupSelect01">"';
+    $resultado .="<option selected>Seleeciona un ..</option>";
+    $conexion_db= conectDB();
 
-    // Check if file already exists
-    if (file_exists($target_file)) {
-    echo "Sorry, file already exists.";
-    $uploadOk = 0;
-    }
+    $resultado .= "</select>";
+    closeDB($conexion_db);
+    return $resultado;
+}
+*/
 
-    // Check file size
-    if ($_FILES["fileToUpload"]["size"] > 500000) {
-    echo "Sorry, your file is too large.";
-    $uploadOk = 0;
-    }
 
-    // Allow certain file formats
-    if($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-    && $imageFileType != "gif" ) {
-    echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
-    $uploadOk = 0;
-    }
 
-    // Check if $uploadOk is set to 0 by an error
-    if ($uploadOk == 0) {
-    echo "Sorry, your file was not uploaded.";
-    // if everything is ok, try to upload file
-    } else {
-    if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
-        echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
-        $_SESSION["archivo"] = $target_file;
-    } else {
-        echo "Sorry, there was an error uploading your file.";
-    }
-    }
-    
-    include("_head.html");
-    include("_sesion.html");
-    include("_footer.html");
 ?>
