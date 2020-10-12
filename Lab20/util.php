@@ -11,70 +11,34 @@ function conectDB(){
 function closeDB($conexion_db){
     mysqli_close($conexion_db);
 }
-
-function getAccesorio(){
-    $resultado="";
-    $conexion_db  = conectDB();
-    $sql= "SELECT id_accesorio, nombre, descripcion , cantidad, precio FROM accesorio";
-    $resultado = mysqli_query($conexion_db,$sql);
-    closeDB($conexion_db);
-    return $resultado;
-}
-
-    function insertAccesorio($id,$nombre,$descripcion,$cantidad,$precio){
-        $conexion_bd = conectDB();
-        $registrar = 'INSERT INTO accesorio (id_accesorio,nombre, descripcion, cantidad, precio) VALUES(?, ?, ?, ?, ?)';    
-        if ( !($statement = $conexion_bd->prepare($registrar))) {
-          die("Error: (" . $conexion_bd->errno . ") " . $conexion_bd->error);
-          return 0;
+/*
+function create_table()
+    {
+        $heading = array("Nombre", "Correo", "Consultas");
+        $users = get_users();
+        if (mysqli_num_rows($users) > 0){
+            $tabla = '<table class="table container shadow table-striped table-bordered table-hover ">';
+                $tabla .= "<thead>";
+                    $tabla .= " <tr>";
+                        for($i = 0; $i < count($heading); $i++) {
+                            $tabla .= '<th class="text-center">' .$heading[$i].'</th>' ;
+                        }
+                    $tabla .= " </tr>";
+                $tabla .= "</thead>";
+                $tabla .= "<tbody>";
+                    while($row = mysqli_fetch_assoc($users)) {
+                        $tabla .= '<tr>';
+                            $tabla .= '<td class="text-center">'.$row["usuario"].'</td>';
+                            $tabla .= '<td class="text-center">'.$row["correo"].'</td>';
+                            $tabla .= '<td class="text-center"> <a href="#" class="btn btn-info btn-xs"><i class="fas fa-search"></i> Consultar</a> <a href="#" class="btn btn-info btn-xs"><i class="fas fa-trash-alt"></i> Eliminar</a> </td> ';
+                        $tabla .="</tr>";
+                    }
+                $tabla .= "</tbody>";
+            $tabla .= "</table>";
+            mysqli_free_result($users); 
+            $tabla .= "</table>";
+            return $tabla;
         }
-        if (!$statement->bind_param("sssss",$id, $nombre,$descripcion,$cantidad,$precio)){
-          die("Error en vinculación: (" . $statement->errno . ") " . $statement->error);
-          return 0;
-        }
-        if (!$statement->execute()) {
-          die("Error en ejecución: (" . $statement->errno . ") " . $statement->error);
-          return 0;
-        }
-    
-        closeDB($conexion_bd);
-        return 1;
-      }
-      function editAccesorio($id,$nombre,$descripcion,$cantidad,$precio){
-        $conexion_bd = conectDB(); 
-        $modificar = 'UPDATE accesorio SET nombre=(?),descripcion=(?),cantidad=(?), precio=(?)  WHERE id_accesorio=(?)';
-    
-        if ( !($statement = $conexion_bd->prepare($modificar))) {
-          die("Error: (" . $conexion_bd->errno . ") " . $conexion_bd->error);
-          return 0;
-        }
-        if (!$statement->bind_param("sssss",$nombre,$descripcion,$cantidad,$precio,$id )) {
-          die("Error en vinculación: (" . $statement->errno . ") " . $statement->error);
-          return 0;
-        }
-        if (!$statement->execute()) {
-          die("Error en ejecución: (" . $statement->errno . ") " . $statement->error);
-          return 0;
-        }
-        closeDB($conexion_bd);
-        return 1;
-      }
-      function deleteAccesorio($id,$nombre,$descripcion,$cantidad,$precio){
-        $conexion_bd = conectDB();
-        $eliminar = 'DELETE FROM accesorio WHERE id_accesorio=(?) AND nombre=(?) AND descripcion=(?) AND cantidad=(?) AND precio=(?)';
-        if ( !($statement = $conexion_bd->prepare($eliminar)) ) {
-          die("Error: (" . $conexion_bd->errno . ") " . $conexion_bd->error);
-          return 0;
-        }
-        if (!$statement->bind_param("sssss", $id,$nombre,$descripcion,$cantidad,$precio)) {
-          die("Error en vinculación: (" . $statement->errno . ") " . $statement->error);
-          return 0;
-        }
-        if (!$statement->execute()) {
-          die("Error en ejecución: (" . $statement->errno . ") " . $statement->error);
-          return 0;
-        }
-        closeDB($conexion_bd);
-        return 1;
     }
+*/
 ?>
