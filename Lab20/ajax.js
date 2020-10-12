@@ -1,14 +1,14 @@
-$(buscar());
+
 
 function buscar(consulta){
     $.ajax({
-        url:"index.php",
+        url:"buscar.php",
         method: 'POST',
         dataType: "html",
-        data:{consulta: cunsulta},
+        data:{consulta: consulta},
     })
     .done(function(respuesta){
-        $("datos").html(respuesta);
+        $("#datos").html(respuesta);
         console.log("si");
     })
     .fail(function(){
@@ -16,7 +16,7 @@ function buscar(consulta){
     })
 }
 
-$($document).on("keyup","#caja",function (){
+$(document).on("keyup","#caja",function (){
     var valorb= $(this).val();
     if(valorb != ""){
         buscar(valorb);
@@ -24,3 +24,5 @@ $($document).on("keyup","#caja",function (){
         buscar();
     }
 });
+
+buscar();

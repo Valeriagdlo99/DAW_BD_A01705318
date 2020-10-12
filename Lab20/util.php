@@ -11,34 +11,45 @@ function conectDB(){
 function closeDB($conexion_db){
     mysqli_close($conexion_db);
 }
-/*
-function create_table()
-    {
-        $heading = array("Nombre", "Correo", "Consultas");
-        $users = get_users();
-        if (mysqli_num_rows($users) > 0){
-            $tabla = '<table class="table container shadow table-striped table-bordered table-hover ">';
-                $tabla .= "<thead>";
-                    $tabla .= " <tr>";
+
+function buscar(){
+    $conexion_db  =conectDB();
+    $tabla="";
+    $query= "SELECT * FROM `accesorio` ORDER BY `accesorio`.`id_accesorio` ASC";
+    if(isset($_POST["consulta"])){
+        $consulta = htmlspecialchars($_POST["consulta"]);
+        $query ="SELECT id_accesorio, nombre, descripcion, cantidad, precio from accesorio where nombre like '%".$consulta. "%'" ; 
+        var_dump($query);
+    }
+    $resultado = $conexion_db ->query($query);
+    if($resultado -> num_rows > 0){
+        $heading = array("id", "Nombre", "Descripción", "Cantidad", "Precio");
+        $tabla = '<table class="table container shadow table-bordered ">';
+                $tabla .= '<thead class="bg-primary" >';
+                $tabla .= " <tr>";
                         for($i = 0; $i < count($heading); $i++) {
                             $tabla .= '<th class="text-center">' .$heading[$i].'</th>' ;
                         }
-                    $tabla .= " </tr>";
+                $tabla .= " </tr>";
                 $tabla .= "</thead>";
                 $tabla .= "<tbody>";
-                    while($row = mysqli_fetch_assoc($users)) {
-                        $tabla .= '<tr>';
-                            $tabla .= '<td class="text-center">'.$row["usuario"].'</td>';
-                            $tabla .= '<td class="text-center">'.$row["correo"].'</td>';
-                            $tabla .= '<td class="text-center"> <a href="#" class="btn btn-info btn-xs"><i class="fas fa-search"></i> Consultar</a> <a href="#" class="btn btn-info btn-xs"><i class="fas fa-trash-alt"></i> Eliminar</a> </td> ';
-                        $tabla .="</tr>";
-                    }
+                while($row = $resultado -> fetch_assoc()) {
+                    $tabla .= '<tr>';
+                        $tabla .= '<td class="text-center">'.$row["id_accesorio"].'</td>';
+                        $tabla .= '<td class="text-center">'.$row["nombre"].'</td>';
+                        $tabla .= '<td class="text-center">'.$row["descripcion"].'</td>';
+                        $tabla .= '<td class="text-center">'.$row["cantidad"].'</td>';
+                        $tabla .= '<td class="text-center">'.$row["precio"].'</td>';
+                    $tabla .="</tr>";
                 $tabla .= "</tbody>";
-            $tabla .= "</table>";
-            mysqli_free_result($users); 
-            $tabla .= "</table>";
-            return $tabla;
-        }
+        
+                }
+         $tabla .= "</table>";
+    }else{
+        $tabla.= "No hay datos :(";
+
     }
-*/
+    return $tabla;
+    mysqli_close($conexion_db);
+}
 ?>
