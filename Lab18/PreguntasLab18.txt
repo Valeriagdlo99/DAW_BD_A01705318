@@ -1,0 +1,13 @@
+¿Qué importancia tiene AJAX en el desarrollo de RIA's (Rich Internet Applications)?
+R: AJAX significa JavaScript asíncrono y XML (Asynchronous JavaScript and XML). Es un conjunto de técnicas de desarrollo web que permiten que las aplicaciones web funcionen de forma asíncrona, procesando cualquier solicitud al servidor en segundo plano. Una rich Internet application (RIA), es una aplicación web que tiene la mayoría de las características de las aplicaciones de escritorio tradicionales. Una de las características de RIA es su accesibilidad, que significa que AJAX se encuentra de forma nativa en los navegadores web. 
+
+¿Qué implicaciones de seguridad tiene AJAX? ¿Dónde se deben hacer las validaciones de seguridad, del lado del cliente o del lado del servidor?
+R: AJAX hace más vulnerables a las mismas por las tecnologías en las que se basa y su diseño. Se dice que en una aplicación como esta parte de la lógica se mueve del servidor al cliente, potencializando los riesgos, tales como: Datos corruptos, acceso sin autorización, datos malformados y mal rendimiento.
+
+¿Qué es JSON?
+R:JavaScript Object Notation es un formato de texto ligero de intercambio de datos, que resulta sencillo de leer y escribir, es  simple de interpretar y generar para las máquinas. Formato de texto que es completamente independiente del lenguaje, pero utiliza convenciones que son familiares para los programadores.  
+
+Referencias: 
+B., G. (2019b, mayo 13). ¿Qué es AJAX y cómo funciona? Tutoriales Hostinger. https://www.hostinger.mx/tutoriales/que-es-ajax/#:%7E:text=AJAX%20significa%20JavaScript%20as%C3%ADncrono%20y,al%20servidor%20en%20segundo%20plano.&text=JavaScript%20es%20un%20lenguaje%20de%20programaci%C3%B3n%20muy%20conocido.
+Oxlaj Mangandi, L. A. (2008). *Fuerzas y debilidades de AJAX como un nuevo enfoque para el desarrollo de aplicaciones web* [Undergraduate Dissertation]. http://biblioteca.usac.edu.gt/tesis/08/08_0393_CS.pdf 
+Barrera, A. (2019, 10 noviembre). JSON: ¿Qué es y para qué sirve? NextU LATAM. https://www.nextu.com/blog/que-es-json/
