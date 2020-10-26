@@ -1,0 +1,24 @@
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <h1>Registra un incidente de seguridad</h1>
+    <br>
+    <br>
+    <form action="controlador.php" method="POST">
+        <div class="form-group">
+          <h2 for="id_accesorio">Lugar:</h2>
+          <br>
+          <?= select("lugar","lugar") ?>
+        </div>
+          <div class="form-group">
+            <h2 for="inputNombre4">Tipo:</h2>
+            <br>
+            <?= select("tipo","tipo")?> 
+            <br>
+          </div>
+        <button type="submit" class="btn btn-primary" id="guardar">Guardar</button>
+    </form>
+</div>
+<br>
+<br>
