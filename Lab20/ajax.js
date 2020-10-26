@@ -1,5 +1,3 @@
-
-
 function buscar(consulta){
     $.ajax({
         url:"buscar.php",
@@ -15,7 +13,6 @@ function buscar(consulta){
         console.log("error");
     })
 }
-
 $(document).on("keyup","#caja",function (){
     var valorb= $(this).val();
     if(valorb != ""){
@@ -24,5 +21,4 @@ $(document).on("keyup","#caja",function (){
         buscar();
     }
 });
-
 buscar();
