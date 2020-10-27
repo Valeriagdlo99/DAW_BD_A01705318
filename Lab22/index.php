@@ -5,6 +5,7 @@ require_once("util.php");
 include("_head.html");
 
 include("_navbar.html");
+include("_intro.html");
 include("_registrar.html");
 include("_footer.html");
 
