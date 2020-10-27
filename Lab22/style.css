@@ -3,5 +3,16 @@ footer{
   bottom:0; 
   width:100%; 
   height:50px; 
+  background:#ff63b1; 
+  color:#fff;
 }
-footer{ background:#000; color:#fff; }
+.footer-info{
+    margin-top: 1%;
+}
+nav{
+    background:#272c52; 
+}
+.image-size{
+  width:50px; 
+  height:50px;
+}
