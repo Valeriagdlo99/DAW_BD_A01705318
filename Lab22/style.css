@@ -2,7 +2,7 @@ footer{
   bottom:0; 
   width:100%; 
   height:50px; 
-  background:#ff63b1; 
+  background:#272c52; 
   color:#fff;
 }
 .footer-info{
@@ -18,9 +18,5 @@ nav{
 .initial-margin {
     padding-top: 70px;
 }
-.card-color{
-    background:#ff63b1;
-}
-
 
 

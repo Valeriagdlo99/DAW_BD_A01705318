@@ -3,30 +3,34 @@
 <div class="cotainer">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header bg-info">
-                    <div class="text-center">
+            <div class="card shadow" >
+                <div class="card-header" style="background-color:#2a324b">
+                    <div class="text-center text-light">
                         Registra un incidente de seguridad
                     </div>
                 </div>
-                <div class="card-body">
-                    <form action="" method="">
-                        <div class="form-group row">
-                            <h2 for="lugar">Lugar:</h2>
-                             <br>
-                            <?= select("lugar","lugar") ?>
-                        </div>
+                <div Class="container">
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group row">
+                                <h5 for="lugar">Lugar:</h5>
+                                <br>
+                                <?= select("lugar","lugar") ?>
+                            </div>
 
-                        <div class="form-group row">
-                            <h2 for="tipo">Tipo:</h2>
-                            <br>
-                            <?= select("tipo","tipo")?> 
-                        </div>
+                            <div class="form-group row">
+                                <h5 for="tipo">Tipo:</h5>
+                                <br>
+                                <?= select("tipo","tipo")?> 
+                            </div>
+                            
+                        </form>
+                    </div>
                 </div>
-                </form>
-                <div class="container">
-                    <button type="submit" class="btn btn-primary" id="save">Guardar</button>
+                <div class="container text-center">
+                    <button type="submit" class="btn  text-light shadow" id="save" style="background-color:#2a324b">Guardar</button>
                 </div>
+                <br>
             </div>
         </div>
     </div>
