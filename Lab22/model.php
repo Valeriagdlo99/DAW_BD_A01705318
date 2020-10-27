@@ -36,7 +36,9 @@ function select($nombre,$tabla,$id="id_") {
 }
 function insertarIncidente($lugar, $tipo){
     $conexion_db = conectDB();
-    $sql = "CALL insertarIncidente( ".$lugar.", ".$tipo.");";
+    //Cambiar a sttored procedures, checr ultimo commit github 
+    $sql = "INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), '".$lugar."', '".$tipo."');";
+    
 
     if(mysqli_query($conexion_db, $sql)){
         echo "Created successfully";
@@ -57,7 +59,7 @@ function insertarIncidente($lugar, $tipo){
 
 /*
 
-Procedimiento para insertar
+Procedimiento para insertar 
 DELIMITER $$
 
 CREATE PROCEDURE insertarIncidente(
