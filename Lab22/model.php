@@ -3,7 +3,7 @@
 //Cosas con la base de datos
 function conectDB(){
 
-    $conexion_db = mysqli_connect("localhost","root","","practica");
+    $conexion_db = mysqli_connect("localhost","root","","lab22");
         if (!$conexion_db) {
             die("No se pudo conectar con la base de datos");
         }
@@ -34,22 +34,42 @@ function select($nombre,$tabla,$id="id_") {
     closeDB($conexion_bd);
     return $resultado;
 }
-function insertarIncidente($lugarid, $tipoid){
-    $conn = connectDb();
-    $sql = "INSERT INTO `incidentepark` (`horafecha`, `idlugar`, `idtipo`) VALUES (current_timestamp(), '".$lugarid."', '".$tipoid."');";
-    
-    if(mysqli_query($conn, $sql)){
-        echo "New record created successfully";
-        closeDb($conn);
+function insertarIncidente($lugar, $tipo){
+    $conexion_db = conectDB();
+    $sql = "CALL insertarIncidente( ".$lugar.", ".$tipo.");";
+
+    if(mysqli_query($conexion_db, $sql)){
+        echo "Created successfully";
+        closeDb($conexion_db);
         unset($_POST);
         return true;
     }else{
-        echo "Error: ". $sql."<br>".mysqli_error($conn);
-        closeDb($conn);
+        echo "Error: ". $sql."<br>".mysqli_error($conexion_db);
+        closeDb($conexion_db);
         unset($_POST);
         return false;
     }
-    closeDb($conn);
+    closeDB($conn);
 }
+
+
+
+
+/*
+
+Procedimiento para insertar
+DELIMITER $$
+
+CREATE PROCEDURE insertarIncidente(
+    IN ulugar INT(11), 
+    IN utipo INT(11)
+)BEGIN 
+    INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), lugar, tipo);
+END$$
+
+DELIMITER ;
+
+
+*/
 
 ?>
