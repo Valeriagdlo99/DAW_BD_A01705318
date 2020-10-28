@@ -10,11 +10,11 @@ if(isset($_POST["lugar"])   && isset($_POST["tipo"])){
         $lugar = $_POST["lugar"];
         $tipo = $_POST["tipo"];
         if(insertarIncidente($lugar, $tipo)){
-            echo("si");
+            $result= get_incidente();
         }  
     }
 }else{
     alert("Favor de completar los campos");
 }
-//Actualizar mi tabla 
+include("_tabla.html");
 ?>

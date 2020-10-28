@@ -12,7 +12,6 @@ $( "#save" ).click(function() {
   });
 */
 
-
 $("#save").click(function () {
     console.log("click");
     $.post("controlador.php", {

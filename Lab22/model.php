@@ -36,10 +36,8 @@ function select($nombre,$tabla,$id="id_") {
 }
 function insertarIncidente($lugar, $tipo){
     $conexion_db = conectDB();
-    //Cambiar a sttored procedures, checr ultimo commit github 
+    //$sql=insertarIncidente("$lugar","$tipo");
     $sql = "INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), '".$lugar."', '".$tipo."');";
-    
-
     if(mysqli_query($conexion_db, $sql)){
         echo "Created successfully";
         closeDb($conexion_db);
@@ -53,9 +51,53 @@ function insertarIncidente($lugar, $tipo){
     }
     closeDB($conn);
 }
+function get_incidente(){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call getIncidente();";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
 
+}
 
+/*Consulta
+DELIMITER $$
+CREATE PROCEDURE getIncidente( )
+BEGIN
+	Select * FROM `incidentes`;
+END$$
+DELIMITER ;
+*/
 
+function create_table($consulta)
+    {
+        $heading = array("FechaHora", "Lugar", "Tipo");
+        $tabla="";
+        if (mysqli_num_rows($consulta) > 0){
+            $tabla .= '<table class="table container shadow table-striped table-bordered ">';
+                $tabla .= "<thead>";
+                    $tabla .= " <tr>";
+                        for($i = 0; $i < count($heading); $i++) {
+                            $tabla .= '<th class="text-center">' .$heading[$i].'</th>' ;
+                        }
+                    $tabla .= " </tr>";
+                $tabla .= "</thead>";
+                $tabla .= "<tbody>";
+                    while($row = mysqli_fetch_assoc($consulta)) {
+                        $tabla .= '<tr>';
+                            $tabla .= '<td class="text-center">'.$row["fecha"].'</td>';
+                            $tabla .= '<td class="text-center">'.$row["lugar"].'</td>';
+                            $tabla .= '<td class="text-center">'.$row["tipo"].'</td>';
+                        $tabla .="</tr>";
+                    }
+                $tabla .= "</tbody>";
+            $tabla .= "</table>";
+            mysqli_free_result($consulta); 
+            $tabla .= "</table>";
+            return $tabla;
+        }
+    }
 
 /*
 
