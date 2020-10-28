@@ -3,7 +3,7 @@
 //Aqui van cosas relacionadas a la base de datos 
 function conectDB(){
 
-    $conexion_db = mysqli_connect("localhost","root","","lab22");
+    $conexion_db = mysqli_connect("localhost","root","","examen");
         if (!$conexion_db) {
             die("No se pudo conectar con la base de datos");
         }
@@ -13,22 +13,136 @@ function conectDB(){
 function closeDB($conexion_db){
     mysqli_close($conexion_db);
 }
-
 function get_nombres(){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call ConsultarNombre();";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
+
+}
+
+function create_nombre_table($consulta)
+    {
+        $heading = array( "Nombres");
+        $tabla="";
+        if (mysqli_num_rows($consulta) > 0){
+            $tabla .= '<table class="table container shadow table-striped table-bordered ">';
+                $tabla .= "<thead>";
+                    $tabla .= " <tr>";
+                        for($i = 0; $i < count($heading); $i++) {
+                            $tabla .= '<th class="text-center">' .$heading[$i].'</th>' ;
+                        }
+                    $tabla .= " </tr>";
+                $tabla .= "</thead>";
+                $tabla .= "<tbody>";
+                    while($row = mysqli_fetch_assoc($consulta)) {
+                        $tabla .= '<tr>';
+                            $tabla .= '<td class="text-center">'.$row["nombre"].'</td>';
+                        $tabla .="</tr>";
+                    }
+                $tabla .= "</tbody>";
+            $tabla .= "</table>";
+            mysqli_free_result($consulta); 
+            $tabla .= "</table>";
+            return $tabla;
+        }
+    }
+
+function insertar_nombre($nombre){
+        $resultado="";
+        $conexion_db = conectDB();
+        $query= "CALL InsertarNombre('$nombre');";
+        $resultado = mysqli_query($conexion_db,$query);
+        closeDB($conexion_db);
+        return $resultado;
+    
+}
+ /*   
+function  selection("nombre","nombre"){
+
+}
+*/
+function selection($nombre,$tabla,$id="id_") {
+    $id.= $nombre;
+    $resultado = '<select id="'.$nombre.'"  name="'.$nombre.'" class="form-control">';
+    $resultado .= '<option value="" disabled selected>Selecciona un '.$tabla.'</option>';
+    $conexion_bd = conectDB();
+    
+    $consulta = 'SELECT '.$id.', '.$nombre.' FROM '.$tabla.' ORDER BY '.$nombre.' ASC';
+    $resultados_consulta = $conexion_bd->query($consulta);  
+    while ($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH)) {
+        
+        $resultado .= '<option value="'.$row[$id].'">'.$row[$nombre].'</option>';
+    }
+    
+    mysqli_free_result($resultados_consulta); //Liberar la memoria
+    
+    $resultado .= '</select>';
+    
+    closeDB($conexion_bd);
+    return $resultado;
+}
+
+function get_zombie(){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call ConsultarZombie();";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
+
+}
+
+function create_table_zombie($consulta)
+    {
+        $heading = array("Nombre", "Estado", "Fecha");
+        $tabla="";
+        if (mysqli_num_rows($consulta) > 0){
+            $tabla .= '<table class="table container shadow table-striped table-bordered ">';
+                $tabla .= "<thead>";
+                    $tabla .= " <tr>";
+                        for($i = 0; $i < count($heading); $i++) {
+                            $tabla .= '<th class="text-center">' .$heading[$i].'</th>' ;
+                        }
+                    $tabla .= " </tr>";
+                $tabla .= "</thead>";
+                $tabla .= "<tbody>";
+                    while($row = mysqli_fetch_assoc($consulta)) {
+                        $tabla .= '<tr>';
+                            $tabla .= '<td class="text-center">'.$row["nombre"].'</td>';
+                            $tabla .= '<td class="text-center">'.$row["estado"].'</td>';
+                            $tabla .= '<td class="text-center">'.$row["fecha"].'</td>';
+                        $tabla .="</tr>";
+                    }
+                $tabla .= "</tbody>";
+            $tabla .= "</table>";
+            mysqli_free_result($consulta); 
+            $tabla .= "</table>";
+            return $tabla;
+        }
+    }
+
+function insertar_zombie($nombre,$estado){
+        $resultado="";
+        $conexion_db = conectDB();
+        $query= "CALL InsertarZombie('$nombre','$estado');";
+        $resultado = mysqli_query($conexion_db,$query);
+        closeDB($conexion_db);
+        return $resultado;
     
 }
 
+function get_estado(){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call ConsultarZombie();";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
 
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
