@@ -25,41 +25,50 @@ DELIMITER $$
 --
 -- Procedimientos
 --
-CREATE DEFINER=`root`@`localhost` PROCEDURE `CantZombies` ()  BEGIN
+CREATE  PROCEDURE `CantZombies` ()  BEGIN
 	  SELECT COUNT(*) as cant FROM `zombie`;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarEnfermedadZombie` (IN `uestado` INT(11))  BEGIN
+CREATE  PROCEDURE `ConsultarEnfermedadZombie` (IN `uestado` INT(11))  BEGIN
 	  SELECT Z.fecha, N.nombre, E.estado 
    	  FROM nombre N, estado E, zombie Z
   	  WHERE Z.nombre = N.id_nombre AND E.id_estado = Z.estado AND Z.estado= uestado
   	  ORDER BY fecha ASC;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarEstado` ()  BEGIN
+CREATE  PROCEDURE `ConsultarEstado` ()  BEGIN
 	  SELECT * FROM `estado`;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarNombre` ()  BEGIN
+CREATE PROCEDURE `ConsultarNombre` ()  BEGIN
 	SELECT * FROM `nombre`;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `ConsultarZombie` ()  BEGIN
+CREATE  PROCEDURE `ConsultarZombie` ()  BEGIN
 	  SELECT Z.fecha, N.nombre, E.estado 
    	  FROM nombre N, estado E, zombie Z
   	  WHERE Z.nombre = N.id_nombre AND E.id_estado = Z.estado
   	  ORDER BY fecha DESC;
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `InsertarNombre` (IN `unombre` VARCHAR(100))  BEGIN
+CREATE  PROCEDURE `InsertarNombre` (IN `unombre` VARCHAR(100))  BEGIN
 	INSERT INTO `nombre` (`nombre`) VALUES ( unombre);
 END$$
 
-CREATE DEFINER=`root`@`localhost` PROCEDURE `Insertarzombie` (IN `unombre` INT(11), IN `utipo` INT(11))  BEGIN
+CREATE  PROCEDURE `Insertarzombie` (IN `unombre` INT(11), IN `utipo` INT(11))  BEGIN
 	INSERT INTO `zombie` (`nombre`, `estado`, `fecha`) VALUES ( unombre, utipo, current_date());
 END$$
 
 DELIMITER ;
+
+DELIMITER $$
+CREATE PROCEDURE CantEstdos(
+    IN uestado INT(11)
+)
+BEGIN
+	  SELECT estado,COUNT(*) as cant FROM zombie where estado=uestado;
+END$$
+
 
 -- --------------------------------------------------------
 
