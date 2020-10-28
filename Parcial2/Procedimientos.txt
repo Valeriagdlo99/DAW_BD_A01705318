@@ -1,0 +1,121 @@
+
+
+
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE REGISTRO--------------------------
+
+
+DELIMITER $$
+
+CREATE PROCEDURE Insertarzombie(
+	IN unombre INT(11), 
+	IN utipo INT(11)
+)  BEGIN
+	INSERT INTO `zombie` (`nombre`, `estado`, `fecha`) VALUES ( unombre, utipo, current_date());
+END$$
+
+DELIMITER ;
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar Nombre--------------------------
+
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarNombre(
+)  BEGIN
+	SELECT * FROM `nombre`;
+END$$
+
+DELIMITER ;
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE InsertarNombre--------------------------
+
+
+DELIMITER $$
+
+CREATE PROCEDURE InsertarNombre(
+    IN unombre VARCHAR(100)
+)  BEGIN
+	INSERT INTO `nombre` (`nombre`) VALUES ( unombre);
+END$$
+
+DELIMITER ;
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar Zombie--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarZombie()
+BEGIN
+	  SELECT Z.fecha, N.nombre, E.estado 
+   	  FROM nombre N, estado E, zombie Z
+  	  WHERE Z.nombre = N.id_nombre AND E.id_estado = Z.estado
+  	  ORDER BY fecha DESC;
+END$$
+DELIMITER ;
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar Enfermedad--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEstado()
+BEGIN
+	  SELECT * FROM `estado`;
+END$$
+
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar Enfermedad--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEstado()
+BEGIN
+	  SELECT * FROM `estado`;
+END$$
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar en zombie por Enfermedad--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEnfermedadZombie(
+    IN uestado INT(11)
+)
+BEGIN
+	  SELECT Z.fecha, N.nombre, E.estado 
+   	  FROM nombre N, estado E, zombie Z
+  	  WHERE Z.nombre = N.id_nombre AND E.id_estado = Z.estado AND Z.estado= uestado
+  	  ORDER BY fecha ASC;
+END$$
+DELIMITER ;
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE CantidadTotal--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE CantZombies()
+BEGIN
+	  SELECT COUNT(*) as cant FROM `zombie`;
+END$$
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE CantidadEstado--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE CantEstdos(
+    IN uestado INT(11)
+)
+BEGIN
+	  SELECT estado,COUNT(*) as cant FROM zombie where estado=uestado;
+END$$
+
+
+
+
+
+//otros
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEstado()
+BEGIN
+	  SELECT * FROM `estado`;
+END$$
+
+
+
+SELECT estado,COUNT(*) as cant FROM zombie where estado=1;
+
+SELECT id,COUNT(*) FROM zombie where estado=1;
