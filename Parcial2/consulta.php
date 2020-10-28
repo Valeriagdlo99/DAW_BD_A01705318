@@ -17,4 +17,12 @@ include("_tabla.html");
 
 include("_footer.html");
 
+
+
+
+
+
+
+
+
 ?>
