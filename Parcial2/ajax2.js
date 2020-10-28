@@ -19,9 +19,9 @@ $("#registrar_enfermedad").click(function () {
         alert("error");
     });
 });
+
 $("#estado_c").click(function () {
-    $.post("controlador_enfermedad.php", {
-        nombre: $("#nombre").val(),
+    $.post("controlador_consulta.php", {
         estado: $("#estado").val()
     }).done(function (data) {
         $("#resultados_consulta").html(data);

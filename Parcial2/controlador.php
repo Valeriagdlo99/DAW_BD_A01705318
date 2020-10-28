@@ -18,5 +18,5 @@ if(isset($_POST["nombre"])){
 }
 
 include("_alert_registrar.html");
-include("_tabla.html");
+include("_tabla2.html");
 ?>

@@ -144,6 +144,16 @@ function get_estado(){
 
 }
 
+function get_zombie_estado($estado){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call ConsultarEnfermedadZombie($estado);";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
+
+}
+
 
 
 
