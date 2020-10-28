@@ -20,6 +20,6 @@ if(isset($_POST["lugar"])&& isset($_POST["tipo"])){
     $action=false;
 }
 
-include("_alert.html");
+include("_alert_registrar.html");
 include("_tabla.html");
 ?>

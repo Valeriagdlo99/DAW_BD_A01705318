@@ -1,6 +1,6 @@
 <?php
 
-//Cosas con la base de datos
+//Aqui van cosas relacionadas a la base de datos 
 function conectDB(){
 
     $conexion_db = mysqli_connect("localhost","root","","lab22");
@@ -34,12 +34,14 @@ function select($nombre,$tabla,$id="id_") {
     closeDB($conexion_bd);
     return $resultado;
 }
+
+
+
 function insertarIncidente($lugar, $tipo){
     $conexion_db = conectDB();
     //$sql=insertarIncidente("$lugar","$tipo");
     $sql = "INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), '".$lugar."', '".$tipo."');";
     if(mysqli_query($conexion_db, $sql)){
-        //echo "Created successfully";
         closeDb($conexion_db);
         unset($_POST);
         return true;
@@ -52,6 +54,23 @@ function insertarIncidente($lugar, $tipo){
     closeDB($conn);
 }
 
+/*
+
+Procedimiento para insertar 
+DELIMITER $$
+
+CREATE PROCEDURE insertarIncidente(
+    IN ulugar INT(11), 
+    IN utipo INT(11)
+)BEGIN 
+    INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), lugar, tipo);
+END$$
+
+DELIMITER ;
+
+
+*/
+
 
 function get_incidente(){
     $resultado="";
@@ -63,8 +82,6 @@ function get_incidente(){
 
 }
 
-
-
 /*Consulta
 DELIMITER $$
 CREATE PROCEDURE getIncidente( )
@@ -73,6 +90,7 @@ BEGIN
 END$$
 DELIMITER ;
 */
+
 
 function get_lugar($lugar){
     $resultado="";
@@ -132,21 +150,87 @@ function create_table($consulta)
         }
     }
 
-/*
 
-Procedimiento para insertar 
+
+
+//PARA ELIMINAR
+
+
+function get_fecha(){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call getFecha();";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
+}
+
+/*Consulta
 DELIMITER $$
-
-CREATE PROCEDURE insertarIncidente(
-    IN ulugar INT(11), 
-    IN utipo INT(11)
-)BEGIN 
-    INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), lugar, tipo);
+CREATE PROCEDURE getFecha( )
+BEGIN
+	Select fecha FROM `incidentes`;
 END$$
-
 DELIMITER ;
-
-
 */
+
+function select_fecha() {
+    $nombre="fecha";
+    $fecha="fecha";
+    $tabla="incidentes";
+    $resultado = '<select id="'.$nombre.'"  name="'.$nombre.'" class="form-control">';
+    $resultado .= '<option value="" disabled selected> Selecciona una '.$nombre.'</option>';
+    $conexion_bd = conectDB();
+    
+    $consulta = 'SELECT '.$fecha.' FROM '.$tabla.'';
+    $resultados_consulta = $conexion_bd->query($consulta);  
+    while ($row = mysqli_fetch_array($resultados_consulta, MYSQLI_BOTH)) {
+        
+        $resultado .= '<option value="'.$row[$fecha].'" >'.$row[$fecha].'</option>';
+        
+    }
+    
+    mysqli_free_result($resultados_consulta); //Liberar la memoria
+    
+    $resultado .= '</select>';
+    
+    closeDB($conexion_bd);
+    return $resultado;
+}
+
+//ELIMINAR UN REGISTRO
+
+function eliminarIncidente($fecha){
+    $conexion_db = conectDB();
+    $sql = "Call eliminarIncidente('.$fecha.');" ;
+    if(mysqli_query($conexion_db, $sql)){
+        closeDb($conexion_db);
+        unset($_POST);
+        return true;
+    }else{
+        echo "Error: ". $sql."<br>".mysqli_error($conexion_db);
+        closeDb($conexion_db);
+        unset($_POST);
+        return false;
+    }
+    closeDB($conn);
+}
+
+/*Consulta
+DELIMITER $$
+CREATE PROCEDURE eliminarIncidente(
+    IN ufecha timestamp
+ )
+BEGIN
+	DELETE FROM `incidentes` WHERE `fecha` = ufecha;
+END$$
+DELIMITER ;
+*/
+
+
+
+
+
+
 
 ?>

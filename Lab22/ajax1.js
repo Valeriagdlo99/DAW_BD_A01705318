@@ -1,5 +1,4 @@
 
-
 $("#save").click(function () {
     $.post("controlador.php", {
         lugar: $("#lugar").val(),
@@ -12,10 +11,18 @@ $("#save").click(function () {
 });
 
 $("#consultar").click(function () {
-    console.log("click");
     $.post("controlador_consultar.php", {
-        lugar: $("#lugar").val(),
-        tipo: $("#tipo").val()
+        lugar: $("#lugar").val()
+    }).done(function (data) {
+        $("#resultados_consulta").html(data);
+    }).fail(function () {
+        alert("error");
+    });
+});
+
+$("#eliminar").click(function () {
+    $.post("controlador_eliminar.php", {
+        fecha: $("#fecha").val()
     }).done(function (data) {
         $("#resultados_consulta").html(data);
     }).fail(function () {

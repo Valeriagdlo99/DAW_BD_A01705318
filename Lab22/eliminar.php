@@ -8,6 +8,7 @@ $result= get_incidente();
 
 include("_navbar.html");
 include("_intro.html");
+include("_eliminar.html");
 include("_tabla.html");
 include("_footer.html");
 
