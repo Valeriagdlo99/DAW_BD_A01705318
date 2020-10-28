@@ -63,6 +63,8 @@ function get_incidente(){
 
 }
 
+
+
 /*Consulta
 DELIMITER $$
 CREATE PROCEDURE getIncidente( )
@@ -71,6 +73,35 @@ BEGIN
 END$$
 DELIMITER ;
 */
+
+function get_lugar($lugar){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= "Call  getLugar($lugar);";
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
+
+}
+
+/*Consulta
+DELIMITER $$
+CREATE PROCEDURE getLugar( 
+    IN ulugar INT(11)
+)
+BEGIN
+	SELECT * FROM `incidentes` WHERE lugar=ulugar;
+END$$
+DELIMITER ;
+*/
+
+
+
+
+
+
+
+
 
 function create_table($consulta)
     {

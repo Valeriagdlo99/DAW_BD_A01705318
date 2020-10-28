@@ -1,0 +1,68 @@
+---------------SCRIPT CREAR PROCEDIMIENTO DE CONSULTA CON MÚLTIPLES TABLAS-------
+---------------               SIN PARÁMETROS                              --------
+
+
+DELIMITER $$
+CREATE PROCEDURE GetIncidentesRecientes()
+BEGIN
+	  SELECT I.horafecha, L.nombre AS nombrelugar, T.nombre AS nombretipo
+   	  FROM incidentepark I, lugarpark L, tipopark T
+  	  WHERE I.idlugar = L.id AND T.id = I.idtipo
+  	  ORDER BY horafecha DESC;
+END$$
+DELIMITER ;
+
+
+---------------------------------------------------------------------------------
+
+
+-------------SCRIPT CREAR PROCEDIMIENTO DE ACTUALIZACIÓN------------------
+-------------               CON PARÁMETROS              ------------------
+
+DELIMITER //
+
+CREATE PROCEDURE UpdateLugares(
+	IN uid INT(11),
+	IN unombre VARCHAR(100)
+)
+BEGIN
+	UPDATE `lugarpark` SET `nombre` = unombre WHERE `lugarpark`.`id` = uid;
+END //
+
+DELIMITER ;
+
+
+CALL UpdateLugares(10, 'LLanura de carnívoros')
+
+----------------------------------------------------------------------------
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE ELIMINACIÓN-----------------------
+-----------             CON PARÁMETROS              -----------------------
+
+DELIMITER $$
+CREATE PROCEDURE RemoveIncidente(
+	IN fecha timestamp
+)
+BEGIN
+	DELETE FROM `incidentepark` WHERE `incidentepark`.`horafecha` = fecha;
+END$$
+DELIMITER ;
+
+
+----------------------------------------------------------------------------
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE REGISTRO--------------------------
+-----------             CON PARÁMETROS              -----------------------
+
+DELIMITER $$
+
+CREATE PROCEDURE InsertarIncidente(
+	IN ulugarid INT(11), 
+	IN utipoid INT(11)
+)  BEGIN
+	INSERT INTO `incidentepark` (`horafecha`, `idlugar`, `idtipo`) VALUES (current_timestamp(), ulugarid, utipoid);
+END$$
+
+DELIMITER ;
+
+Call InsertarIncidente(1,1)
