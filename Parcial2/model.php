@@ -154,6 +154,45 @@ function get_zombie_estado($estado){
 
 }
 
+function get_cant_zombies()
+{
+        $resultado="";
+        $conexion_db = conectDB();
+        $query= "Call CantZombies();";
+        $resultado = mysqli_query($conexion_db,$query);
+        closeDB($conexion_db);
+        return $resultado;
+}
+
+
+function get_zombies($consulta)
+{
+    if (mysqli_num_rows($consulta) > 0){
+        while($row = mysqli_fetch_assoc($consulta)) {
+            $resultados = '<h3">'.$row["cant"].'</h3>';
+        }
+        
+    }
+    return $resultados;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

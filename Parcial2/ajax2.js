@@ -29,3 +29,13 @@ $("#estado_c").click(function () {
         alert("error");
     });
 });
+
+
+$("#cant").click(function () {
+    $.post("controlador_cant.php", {
+    }).done(function (data) {
+        $("#resultados_consulta").html(data);
+    }).fail(function () {
+        alert("error");
+    });
+});

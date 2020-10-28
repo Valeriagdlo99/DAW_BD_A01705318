@@ -84,10 +84,19 @@ BEGIN
 END$$
 DELIMITER ;
 
+-----------SCRIPT CREAR PROCEDIMIENTO DE CantidadTotal--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE CantZombies()
+BEGIN
+	  SELECT COUNT(*) as cant FROM `zombie`;
+END$$
 
 
 
 
+
+//otros
 
 DELIMITER $$
 CREATE PROCEDURE ConsultarEstado()
@@ -98,3 +107,5 @@ END$$
 
 
 SELECT estados,COUNT(*) FROM zombie where estado=1;
+
+SELECT id,COUNT(*) FROM zombie where estado=1;
