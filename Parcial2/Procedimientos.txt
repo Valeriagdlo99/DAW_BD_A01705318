@@ -1,0 +1,29 @@
+
+
+
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE REGISTRO--------------------------
+
+
+DELIMITER $$
+
+CREATE PROCEDURE Insertarzombie(
+	IN unombre INT(11), 
+	IN utipo INT(11)
+)  BEGIN
+	INSERT INTO `zombie` (`nombre`, `estado`, `fecha`) VALUES ( unombre, utipo, current_date());
+END$$
+
+DELIMITER ;
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar Nombre--------------------------
+
+
+DELIMITER $$
+
+CREATE PROCEDURE ConsultarNombre(
+)  BEGIN
+	SELECT * FROM `nombre`;
+END$$
+
+DELIMITER ;

@@ -66,3 +66,8 @@ END$$
 DELIMITER ;
 
 Call InsertarIncidente(1,1)
+
+INSERT INTO `zombie`(`nombre`, `estado`, `fecha`) VALUES (,[value-2],[value-3],[value-4])
+
+
+
