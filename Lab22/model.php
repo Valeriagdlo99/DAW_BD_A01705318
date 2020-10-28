@@ -39,7 +39,7 @@ function insertarIncidente($lugar, $tipo){
     //$sql=insertarIncidente("$lugar","$tipo");
     $sql = "INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), '".$lugar."', '".$tipo."');";
     if(mysqli_query($conexion_db, $sql)){
-        echo "Created successfully";
+        //echo "Created successfully";
         closeDb($conexion_db);
         unset($_POST);
         return true;
@@ -51,6 +51,8 @@ function insertarIncidente($lugar, $tipo){
     }
     closeDB($conn);
 }
+
+
 function get_incidente(){
     $resultado="";
     $conexion_db = conectDB();

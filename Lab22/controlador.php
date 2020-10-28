@@ -4,17 +4,22 @@
 
 require_once("util.php");
 require_once("model.php");
+$action="";
+$result= get_incidente();
 
-if(isset($_POST["lugar"])   && isset($_POST["tipo"])){
+if(isset($_POST["lugar"])&& isset($_POST["tipo"])){
     if(is_numeric($_POST["lugar"]) && is_numeric($_POST["tipo"])){
         $lugar = $_POST["lugar"];
         $tipo = $_POST["tipo"];
         if(insertarIncidente($lugar, $tipo)){
             $result= get_incidente();
+            $action=true;
         }  
     }
 }else{
-    alert("Favor de completar los campos");
+    $action=false;
 }
+
+include("_alert.html");
 include("_tabla.html");
 ?>
