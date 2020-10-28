@@ -60,4 +60,41 @@ CREATE PROCEDURE ConsultarEstado()
 BEGIN
 	  SELECT * FROM `estado`;
 END$$
+
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar Enfermedad--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEstado()
+BEGIN
+	  SELECT * FROM `estado`;
+END$$
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE Consultar en zombie por Enfermedad--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEnfermedadZombie(
+    IN uestado INT(11)
+)
+BEGIN
+	  SELECT Z.fecha, N.nombre, E.estado 
+   	  FROM nombre N, estado E, zombie Z
+  	  WHERE Z.nombre = N.id_nombre AND E.id_estado = Z.estado AND Z.estado= uestado
+  	  ORDER BY fecha ASC;
+END$$
 DELIMITER ;
+
+
+
+
+
+
+DELIMITER $$
+CREATE PROCEDURE ConsultarEstado()
+BEGIN
+	  SELECT * FROM `estado`;
+END$$
+
+
+
+SELECT estados,COUNT(*) FROM zombie where estado=1;

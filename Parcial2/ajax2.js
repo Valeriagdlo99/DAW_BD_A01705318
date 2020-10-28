@@ -19,3 +19,13 @@ $("#registrar_enfermedad").click(function () {
         alert("error");
     });
 });
+$("#estado_c").click(function () {
+    $.post("controlador_enfermedad.php", {
+        nombre: $("#nombre").val(),
+        estado: $("#estado").val()
+    }).done(function (data) {
+        $("#resultados_consulta").html(data);
+    }).fail(function () {
+        alert("error");
+    });
+});
