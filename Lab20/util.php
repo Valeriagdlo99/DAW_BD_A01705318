@@ -19,7 +19,7 @@ function buscar(){
     if(isset($_POST["consulta"])){
         $consulta = htmlspecialchars($_POST["consulta"]);
         $query ="SELECT id_accesorio, nombre, descripcion, cantidad, precio from accesorio where nombre like '%".$consulta. "%'" ; 
-        var_dump($query);
+        //var_dump($query);
     }
     $resultado = $conexion_db ->query($query);
     if($resultado -> num_rows > 0){
@@ -46,7 +46,7 @@ function buscar(){
                 }
          $tabla .= "</table>";
     }else{
-        $tabla.= "No hay datos :(";
+        $tabla.= "No hay datos";
 
     }
     return $tabla;

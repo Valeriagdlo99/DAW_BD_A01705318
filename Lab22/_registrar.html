@@ -1,0 +1,106 @@
+
+
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow" >
+                <div class="card-header" style="background-color:#2a324b">
+                    <div class="text-center text-light">
+                        Registra un incidente de seguridad
+                    </div>
+                </div>
+                <div Class="container">
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group row">
+                                <h5 for="lugar">Lugar:</h5>
+                                <br>
+                                <?= select("lugar","lugar") ?>
+                            </div>
+
+                            <div class="form-group row">
+                                <h5 for="tipo">Tipo:</h5>
+                                <br>
+                                <?= select("tipo","tipo")?> 
+                            </div>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <button type="submit" class="btn  text-light shadow" id="save" style="background-color:#2a324b">Guardar</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<!--
+<div class="alert alert-primary"  id="resultados_consulta">
+</div>
+-->
+
+<!-- Machote
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <div class="text-center">
+                        Registra un incidente de seguridad
+                    </div>
+                </div>
+                <div class="card-body">
+                    <form action="" method="">
+                        <div class="form-group row">
+                            
+                        </div>
+
+                        <div class="form-group row">
+                           
+                        </div>
+                </div>
+                </form>
+                <button type="submit" class="btn btn-primary" id="save">Guardar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+--->
+
+<!--
+
+Form funcional sin formato 
+<br>
+<br>
+<br>
+<div class="container text-center">
+    <h1>Registra un incidente de seguridad</h1>
+    <br>
+    <br>
+    <form action="controlador.php" method="POST">
+        <div class="form-group">
+            <h2 for="lugar">Lugar:</h2>
+            <br>
+            <?= select("lugar","lugar") ?>
+            </div>
+            <div class="form-group">
+                <h2 for="tipo">Tipo:</h2>
+                <br>
+                <?= select("tipo","tipo")?> 
+                <br>
+           
+            </div>
+    </form>
+    <button type="submit" class="btn btn-primary" id="save">Guardar</button>
+</div>
+
+    <div class="alert alert-primary"  id="resultados_consulta">
+    </div>
+<br>
+<br>
+
+--->
