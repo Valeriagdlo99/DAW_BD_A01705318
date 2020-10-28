@@ -42,16 +42,12 @@ function insertarIncidente($lugar, $tipo){
     //$sql=insertarIncidente("$lugar","$tipo");
     $sql = "INSERT INTO `incidentes` (`fecha`, `lugar`, `tipo`) VALUES (current_timestamp(), '".$lugar."', '".$tipo."');";
     if(mysqli_query($conexion_db, $sql)){
-        closeDb($conexion_db);
-        unset($_POST);
         return true;
     }else{
         echo "Error: ". $sql."<br>".mysqli_error($conexion_db);
-        closeDb($conexion_db);
-        unset($_POST);
         return false;
     }
-    closeDB($conn);
+    closeDb($conexion_db);
 }
 
 /*
@@ -202,18 +198,18 @@ function select_fecha() {
 
 function eliminarIncidente($fecha){
     $conexion_db = conectDB();
-    $sql = "Call eliminarIncidente('.$fecha.');" ;
+    // así no $sql = "Call eliminarIncidente('.$fecha.');" ;
+    $sql = "Call eliminarIncidente('$fecha');" ;
     if(mysqli_query($conexion_db, $sql)){
-        closeDb($conexion_db);
-        unset($_POST);
+    closeDb($conexion_db);
         return true;
     }else{
         echo "Error: ". $sql."<br>".mysqli_error($conexion_db);
-        closeDb($conexion_db);
-        unset($_POST);
+        
+    closeDb($conexion_db);
         return false;
     }
-    closeDB($conn);
+    closeDb($conexion_db);
 }
 
 /*Consulta
@@ -228,7 +224,76 @@ DELIMITER ;
 */
 
 
+//ACTUALIZAR
+function actualizarLugar($lugar, $nuevo_lugar){
+    $conexion_db = conectDB();
+    // así no $sql = "Call eliminarIncidente('.$fecha.');" ;
+    $sql = "Call actualizarLugar($lugar,'$nuevo_lugar');" ;
+    if(mysqli_query($conexion_db, $sql)){
+    closeDb($conexion_db);
+        return true;
+    }else{
+        echo "Error: ". $sql."<br>".mysqli_error($conexion_db);
+        
+    closeDb($conexion_db);
+        return false;
+    }
+    closeDb($conexion_db);
+}
 
+
+/*
+
+DELIMITER $$
+CREATE PROCEDURE actualizarLugar(
+    IN uid INT(11),
+	IN unombre VARCHAR(100)
+)
+BEGIN
+	  UPDATE `lugar` SET `ulugar` = unombre WHERE `id` = uid;
+END$$
+DELIMITER ;
+
+
+*/
+
+
+function get_lugares(){
+    $resultado="";
+    $conexion_db = conectDB();
+    $query= 'SELECT * FROM `lugar`';
+    $resultado = mysqli_query($conexion_db,$query);
+    closeDB($conexion_db);
+    return $resultado;
+    
+}
+
+function create_actualizar_table($consulta)
+    {
+        $heading = array( "Lugar");
+        $tabla="";
+        if (mysqli_num_rows($consulta) > 0){
+            $tabla .= '<table class="table container shadow table-striped table-bordered ">';
+                $tabla .= "<thead>";
+                    $tabla .= " <tr>";
+                        for($i = 0; $i < count($heading); $i++) {
+                            $tabla .= '<th class="text-center">' .$heading[$i].'</th>' ;
+                        }
+                    $tabla .= " </tr>";
+                $tabla .= "</thead>";
+                $tabla .= "<tbody>";
+                    while($row = mysqli_fetch_assoc($consulta)) {
+                        $tabla .= '<tr>';
+                            $tabla .= '<td class="text-center">'.$row["lugar"].'</td>';
+                        $tabla .="</tr>";
+                    }
+                $tabla .= "</tbody>";
+            $tabla .= "</table>";
+            mysqli_free_result($consulta); 
+            $tabla .= "</table>";
+            return $tabla;
+        }
+    }
 
 
 

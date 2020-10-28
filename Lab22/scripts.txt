@@ -3,12 +3,12 @@
 
 
 DELIMITER $$
-CREATE PROCEDURE GetIncidentesRecientes()
+CREATE PROCEDURE getIncidente()
 BEGIN
-	  SELECT I.horafecha, L.nombre AS nombrelugar, T.nombre AS nombretipo
-   	  FROM incidentepark I, lugarpark L, tipopark T
-  	  WHERE I.idlugar = L.id AND T.id = I.idtipo
-  	  ORDER BY horafecha DESC;
+	  SELECT I.fecha, L.lugar, T.tipo 
+   	  FROM incidentes I, lugar L, tipo T
+  	  WHERE I.lugar = L.id_lugar AND T.id_tipo = I.tipo
+  	  ORDER BY fecha DESC;
 END$$
 DELIMITER ;
 

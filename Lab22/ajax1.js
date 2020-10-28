@@ -30,6 +30,16 @@ $("#eliminar").click(function () {
     });
 });
 
+$("#actualizar").click(function () {
+    $.post("controlador_actualizar.php", {
+        lugar: $("#lugar").val(),
+        nuevo_lugar: $("#nuevo_lugar").val()
+    }).done(function (data) {
+        $("#resultados_consulta").html(data);
+    }).fail(function () {
+        alert("error");
+    });
+});
 
 
 
