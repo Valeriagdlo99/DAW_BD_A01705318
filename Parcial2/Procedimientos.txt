@@ -92,6 +92,16 @@ BEGIN
 	  SELECT COUNT(*) as cant FROM `zombie`;
 END$$
 
+-----------SCRIPT CREAR PROCEDIMIENTO DE CantidadEstado--------------------------
+
+DELIMITER $$
+CREATE PROCEDURE CantEstdos(
+    IN uestado INT(11)
+)
+BEGIN
+	  SELECT estado,COUNT(*) as cant FROM zombie where estado=uestado;
+END$$
+
 
 
 
@@ -106,6 +116,6 @@ END$$
 
 
 
-SELECT estados,COUNT(*) FROM zombie where estado=1;
+SELECT estado,COUNT(*) as cant FROM zombie where estado=1;
 
 SELECT id,COUNT(*) FROM zombie where estado=1;

@@ -39,3 +39,14 @@ $("#cant").click(function () {
         alert("error");
     });
 });
+
+$("#cant_estado").click(function () {
+    $.post("controlador_cant_estado.php", {
+        estado: $("#estado").val()
+    }).done(function (data) {
+        $("#resultados_consultas").html(data);
+    }).fail(function () {
+        alert("error");
+    });
+});
+

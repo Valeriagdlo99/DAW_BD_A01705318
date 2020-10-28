@@ -177,6 +177,26 @@ function get_zombies($consulta)
 
 }
 
+function get_cant_estado($estado)
+{
+        $resultado="";
+        $conexion_db = conectDB();
+        $query= "Call CantEstdos($estado);";
+        $resultado = mysqli_query($conexion_db,$query);
+        closeDB($conexion_db);
+        return $resultado;
+}
+function get_estadoss($consulta2)
+{
+    if (mysqli_num_rows($consulta2) > 0){
+        while($row = mysqli_fetch_assoc($consulta2)) {
+            $resultados = '<h3">'.$row["cant"].'</h3>';
+        }
+        
+    }
+    return $resultados;
+
+}
 
 
 
