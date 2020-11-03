@@ -1,0 +1,73 @@
+---------------SCRIPT CREAR PROCEDIMIENTO DE CONSULTA CON MÚLTIPLES TABLAS-------
+---------------               SIN PARÁMETROS                              --------
+
+
+DELIMITER $$
+CREATE PROCEDURE getIncidente()
+BEGIN
+	  SELECT I.fecha, L.lugar, T.tipo 
+   	  FROM incidentes I, lugar L, tipo T
+  	  WHERE I.lugar = L.id_lugar AND T.id_tipo = I.tipo
+  	  ORDER BY fecha DESC;
+END$$
+DELIMITER ;
+
+
+---------------------------------------------------------------------------------
+
+
+-------------SCRIPT CREAR PROCEDIMIENTO DE ACTUALIZACIÓN------------------
+-------------               CON PARÁMETROS              ------------------
+
+DELIMITER //
+
+CREATE PROCEDURE UpdateLugares(
+	IN uid INT(11),
+	IN unombre VARCHAR(100)
+)
+BEGIN
+	UPDATE `lugarpark` SET `nombre` = unombre WHERE `lugarpark`.`id` = uid;
+END //
+
+DELIMITER ;
+
+
+CALL UpdateLugares(10, 'LLanura de carnívoros')
+
+----------------------------------------------------------------------------
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE ELIMINACIÓN-----------------------
+-----------             CON PARÁMETROS              -----------------------
+
+DELIMITER $$
+CREATE PROCEDURE RemoveIncidente(
+	IN fecha timestamp
+)
+BEGIN
+	DELETE FROM `incidentepark` WHERE `incidentepark`.`horafecha` = fecha;
+END$$
+DELIMITER ;
+
+
+----------------------------------------------------------------------------
+
+-----------SCRIPT CREAR PROCEDIMIENTO DE REGISTRO--------------------------
+-----------             CON PARÁMETROS              -----------------------
+
+DELIMITER $$
+
+CREATE PROCEDURE InsertarIncidente(
+	IN ulugarid INT(11), 
+	IN utipoid INT(11)
+)  BEGIN
+	INSERT INTO `incidentepark` (`horafecha`, `idlugar`, `idtipo`) VALUES (current_timestamp(), ulugarid, utipoid);
+END$$
+
+DELIMITER ;
+
+Call InsertarIncidente(1,1)
+
+INSERT INTO `zombie`(`nombre`, `estado`, `fecha`) VALUES (,[value-2],[value-3],[value-4])
+
+
+

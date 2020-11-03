@@ -1,0 +1,36 @@
+<div class="cotainer">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow" >
+                <div class="card-header" style="background-color:#2a324b">
+                    <div class="text-center text-light">
+                        Actualiza un registro
+                    </div>
+                </div>
+                <div Class="container">
+                    <div class="card-body">
+                        <form action="" method="">
+                            <div class="form-group row">
+                                <h5 for="lugar">Lugar:</h5>
+                                <br>
+                                <?= select("lugar","lugar") ?>
+                            </div>  
+                            <div class="form-group row">
+                                <h5 for="lugar">Actualiza el lugar:</h5>
+                                <br>
+                                <input type="text" class="form-control" id="nuevo_lugar" aria-describedby="emailHelp" placeholder="Ingresa nombre del lugar" required >        
+                            </div>  
+                             
+                        </form>
+                    </div>
+                </div>
+                <div class="container text-center">
+                    <button type="submit" class="btn  text-light shadow" id="actualizar" style="background-color:#2a324b">Actualizar</button>
+                </div>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>

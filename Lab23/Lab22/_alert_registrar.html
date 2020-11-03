@@ -1,0 +1,15 @@
+<?php if($action): ?>
+    <div class="container alert alert-success alert-dismissible fade show" role="alert">
+        Registrado correctamente
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<?php else: ?>
+    <div class="container alert alert-danger alert-dismissible fade show" role="alert">
+        Error: no se pudo registrar 
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+<?php endif ?>
