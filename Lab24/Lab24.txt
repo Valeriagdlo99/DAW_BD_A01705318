@@ -1,0 +1,41 @@
+Valeria Guerra de la O
+
+¿Qué pasa cuando deseas realizar esta consulta?
+
+R: EL usuario 2 puede ver las tablas. 
+
+¿Qué pasa cuando deseas realizar esta consulta?
+
+R: Desde la sesión 2 o se puede accesar a la consulta
+
+Explica por qué ocurre dicho evento.
+R: porque no se ha hecho un commit y para garantizar unicidad. 
+
+Explica por qué ocurre dicho evento.
+R: si lo deja porque la sesión 2 fue la que hizo esa consulta. 
+
+¿Qué ocurrió y por qué?
+R: Si aparece en la sesión 2 porque ya se hizo commit de prueba 2.
+
+¿Para qué sirve el comando @@ERROR revisa la ayuda en línea?
+R: para ver si existe algún erro en la prueba que hicimos
+
+¿Qué hace la transacción?
+R: Inserta clientes en la tabla de Clientes_Banca y si hay errores hace rollback
+
+¿Hubo alguna modificación en la tabla? Explica qué pasó y por qué.
+R: No porque hubo un error y por eso hace rollback
+
+
+CREATE PROCEDURE REGISTRAR_RETIRO_CAJERO 
+            @uNoCuenta Varchar(5), 
+	    @uMonto numeric(10,2)
+            AS
+			Insert Into Movimientos values (@uNoCuenta, 'A',  getdate(),@uMonto);
+            GO
+CREATE PROCEDURE REGISTRAR_DEPOSITO_VENTANILLA 
+            @uNoCuenta Varchar(5), 
+	    @uMonto numeric(10,2)
+            AS
+			Insert Into Movimientos values (@uNoCuenta, 'B',  getdate(),@uMonto);
+            GO
